@@ -16,4 +16,39 @@ class ProductController extends Controller
 	{
 		return view('admin.products-create');
 	}
+	public function Add(Request $request)
+	{
+		$product = new Product;
+
+		$product->name=$request->name;
+		$product->detail=$request->detail;
+		$product->Save();
+
+         $request->session()->flash('alert-success', 'Product Add Successfully');
+		return redirect(route('products.index'));
+	}
+	public function edit(Product $product,$id)
+	{
+         $product = Product::find($id);
+         return view('admin.products-edit')->with(compact('product'));
+	}
+	public function update(Request $request)
+	{
+         $product = Product::find($request->id);
+
+          $product->name=$request->name;
+		  $product->detail=$request->detail;
+		  $product->Update();
+
+         return redirect(route('products.index'));
+	}
+	public function deleteProduct(Request $request, $id )
+    {
+        $products = Product::find($id);
+        $products->delete();
+
+        $request->session()->flash('alert-danger', 'Product Delete Successfully');
+          return back();
+    }
+
 }

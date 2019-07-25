@@ -129,7 +129,7 @@
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="{{route('products')}}">
+              <a class="nav-link active" href="{{route('products.index')}}">
                 Product <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -139,7 +139,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('inventories')}}">
+              <a class="nav-link" href="{{route('inventories.index')}}">
                 Inventory
               </a>
             </li>
@@ -160,3 +160,19 @@
 
         @yield('js')
 </body></html>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+        setTimeout(function(){
+            $("div.flash-message").remove();
+        }, 1000);
+    });
+
+
+
+</script>

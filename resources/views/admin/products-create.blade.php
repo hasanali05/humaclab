@@ -6,15 +6,17 @@
   <h1 class="h2">Products</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-      <a type="button" class="btn btn-sm btn-secondary" href="{{ route('products') }}">Back</a>
+      <a type="button" class="btn btn-sm btn-secondary" href="{{ route('products.index') }}">Back</a>
     </div>
-  </div>
+  </div> 
 </div>
-<div class="row pt-3 pb-2 mb-3">  
-  <div class="col-8 m-auto">    
+<div class="row pt-3 pb-2 mb-3"> 
 
-    <form method="post" action="{{route('products')}}">
-      @csrf
+ 
+  <div class="col-8 m-auto">    
+<form class="form-horizontal" method="POST" action="{{route('products.add')}}" enctype="multipart/form-data">
+              {{ csrf_field() }}
+ 
         <div class="form-group">
             <label>Name</label>           
               <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value=""  autofocus >

@@ -34,7 +34,7 @@
 						@endforeach
 					</td>
 					<td>
-				        <a class="btn btn-warning btn-icon-split">Edit</a> | 
+				        <a class="btn btn-warning btn-icon-split" href="{{route('variations.edit',$variation)}}">Edit</a> | 
 				        <a class="btn btn-danger btn-icon-split">Delete</a>  
 				    </td>
 				</tr>
